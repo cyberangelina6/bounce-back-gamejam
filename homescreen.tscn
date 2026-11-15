@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://dpg2dyh8u8tlb"]
-
+[ext_resource type="Script" uid="uid://bnar0ec0k87du" path="res://homescreen.gd" id="1_edeuv"]
 [ext_resource type="Texture2D" uid="uid://i0rweci07l5b" path="res://homescreen_scenery_clean.png" id="2_edeuv"]
 [ext_resource type="FontFile" uid="uid://cec43520bakry" path="res://Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_1bjcg"]
 [ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="3_c2ysq"]

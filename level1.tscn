@@ -14,6 +14,10 @@
 position = Vector2(3231, 1154)
 texture = ExtResource("1_v8kj3")
 
+[node name="Skybg2" type="Sprite2D" parent="." unique_id=1859431235]
+position = Vector2(3231, 1154)
+texture = ExtResource("1_v8kj3")
+
 [node name="Dayclouds" type="Sprite2D" parent="." unique_id=546843059]
 position = Vector2(1702, 354)
 scale = Vector2(0.292666, 0.3112673)
