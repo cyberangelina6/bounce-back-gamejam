@@ -62,47 +62,47 @@ position = Vector2(174, 501.99997)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)5" type="Sprite2D" parent="." unique_id=359179548]
-position = Vector2(362, 352)
+[node name="Dayblock(2)5" type="Sprite2D" parent="." unique_id=458357080]
+position = Vector2(369, 348)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)6" type="Sprite2D" parent="." unique_id=903027449]
-position = Vector2(416, 352)
+[node name="Dayblock(2)6" type="Sprite2D" parent="." unique_id=718380617]
+position = Vector2(409, 348)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)7" type="Sprite2D" parent="." unique_id=399295579]
-position = Vector2(470, 352)
+[node name="Dayblock(2)7" type="Sprite2D" parent="." unique_id=1021564120]
+position = Vector2(451.00003, 348)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)8" type="Sprite2D" parent="." unique_id=533082003]
-position = Vector2(691, 416)
+[node name="Dayblock(2)8" type="Sprite2D" parent="." unique_id=439424169]
+position = Vector2(694, 415)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)9" type="Sprite2D" parent="." unique_id=1512590908]
-position = Vector2(746, 416)
+[node name="Dayblock(2)9" type="Sprite2D" parent="." unique_id=28736286]
+position = Vector2(746.00006, 415)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)10" type="Sprite2D" parent="." unique_id=225598861]
-position = Vector2(787, 417)
+[node name="Dayblock(2)10" type="Sprite2D" parent="." unique_id=765298314]
+position = Vector2(773.00006, 415)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)11" type="Sprite2D" parent="." unique_id=152311072]
-position = Vector2(996, 213)
+[node name="Dayblock(2)11" type="Sprite2D" parent="." unique_id=1417590009]
+position = Vector2(1001, 210)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)12" type="Sprite2D" parent="." unique_id=1265078727]
-position = Vector2(1052, 213)
+[node name="Dayblock(2)12" type="Sprite2D" parent="." unique_id=1937620457]
+position = Vector2(1037, 209.99998)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
-[node name="Dayblock(2)13" type="Sprite2D" parent="." unique_id=658542283]
-position = Vector2(1106, 213)
+[node name="Dayblock(2)13" type="Sprite2D" parent="." unique_id=1659725524]
+position = Vector2(1081.0001, 210)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
