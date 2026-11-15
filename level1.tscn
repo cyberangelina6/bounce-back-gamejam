@@ -91,10 +91,10 @@ position = Vector2(971, 197)
 position = Vector2(854, 537)
 
 [node name="CharacterBody2D" parent="." unique_id=1866755409 instance=ExtResource("2_ootpb")]
-position = Vector2(121, 435)
+position = Vector2(129, 421)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116513053]
-position = Vector2(0, -42)
+position = Vector2(1, -15)
 sprite_frames = SubResource("SpriteFrames_4vlmo")
 animation = &"jump"
 
