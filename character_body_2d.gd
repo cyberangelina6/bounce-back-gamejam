@@ -19,6 +19,14 @@ var day_night
 @export var end_node_name = "award"
 var finished = false
 
+# Falling onto the cloud bottom opens the "Use Bounce Back?" popup.
+# YES is only offered this many times; after that the only option is RESTART.
+@export var bounce_backs = 2
+@export var bounce_back_velocity = -1100.0
+@onready var bounce_popup = get_parent().get_node_or_null("BouncePopup")
+var cloud_touches = 0
+var popup_open = false
+
 func _ready():
 	for node in get_parent().get_children():
 		if node is Sprite2D and node.name.to_lower().begins_with("portal"):
@@ -26,6 +34,14 @@ func _ready():
 	day_night = preload("res://day_night.gd").new()
 	add_child(day_night)
 	day_night.setup(get_parent())
+	if bounce_popup:
+		bounce_popup.get_node("YesButton").pressed.connect(_on_bounce_back_yes)
+		bounce_popup.get_node("NoButton").text = "RESTART"
+		bounce_popup.get_node("NoButton").pressed.connect(_on_restart)
+		var font = preload("res://Pixelify_Sans/static/PixelifySans-Bold.ttf")
+		for button in [bounce_popup.get_node("YesButton"), bounce_popup.get_node("NoButton")]:
+			button.add_theme_font_override("font", font)
+			button.add_theme_font_size_override("font_size", 32)
 
 func _physics_process(delta):
 
@@ -63,7 +79,8 @@ func _physics_process(delta):
 			_finish_level()
 			return
 		if collider.name == "cloud_bottom":
-			velocity.y= -1100
+			touch_cloud_bottom()
+			return
 		if collider.name == "cloud_bounce":
 			if collision.get_normal().y < -0.5:
 				velocity.y = -950.0
@@ -94,3 +111,52 @@ func _finish_level():
 	set_physics_process(false)
 	anim.stop()
 	add_child(preload("res://endscreen.gd").new())
+
+# Called when the bunny lands on the cloud bottom (also by area_2d.gd).
+# Freezes the bunny and asks whether to bounce back or restart.
+func touch_cloud_bottom():
+	if popup_open or finished:
+		return
+	if bounce_popup == null:
+		velocity.y = bounce_back_velocity
+		return
+	popup_open = true
+	cloud_touches += 1
+	set_physics_process(false)
+	anim.stop()
+	bounce_popup.get_node("YesButton").visible = cloud_touches <= bounce_backs
+	_center_bounce_popup()
+	bounce_popup.visible = true
+
+# Puts the popup in the middle of the screen, whatever the window size:
+# the pink panel centred, the buttons side by side in its lower half.
+func _center_bounce_popup():
+	var screen = get_viewport().get_visible_rect().size
+	var center = screen / 2
+	var dim = bounce_popup.get_node("ColorRect")
+	dim.position = Vector2.ZERO
+	dim.size = screen
+	# The pink panel sits slightly up-left of the image's centre, so nudge it
+	var art = bounce_popup.get_node("UseBounceBack")
+	art.position = center + Vector2(105, 103) * art.scale
+	var yes = bounce_popup.get_node("YesButton")
+	var restart = bounce_popup.get_node("NoButton")
+	var button_size = Vector2(210, 54)
+	var gap = 30.0
+	var y = center.y + 90
+	yes.size = button_size
+	restart.size = button_size
+	if yes.visible:
+		yes.position = Vector2(center.x - gap / 2 - button_size.x, y)
+		restart.position = Vector2(center.x + gap / 2, y)
+	else:
+		restart.position = Vector2(center.x - button_size.x / 2, y)
+
+func _on_bounce_back_yes():
+	bounce_popup.visible = false
+	popup_open = false
+	velocity = Vector2(0, bounce_back_velocity)
+	set_physics_process(true)
+
+func _on_restart():
+	get_tree().reload_current_scene()

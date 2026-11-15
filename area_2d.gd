@@ -5,4 +5,4 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
-		get_tree().current_scene.get_node("BouncePopup").visible = true
+		body.touch_cloud_bottom()

@@ -4,6 +4,7 @@
 size = Vector2(1715, 68)
 
 [node name="cloud_bottom" type="StaticBody2D" unique_id=2010952419]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=610650031]
 offset_right = 1715.0
