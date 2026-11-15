@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bphwod2vc1p8f" path="res://daybunny_walk.png" id="7_mx85b"]
 [ext_resource type="Texture2D" uid="uid://cldi0b5b8mjmw" path="res://jumppad.png" id="8_usj0q"]
 [ext_resource type="Texture2D" uid="uid://d36u3l3bh761r" path="res://dayportal.png" id="8_xy4tn"]
+[ext_resource type="Texture2D" uid="uid://6672tm2egicr" path="res://UseBounceBack.png" id="12_hx44q"]
+[ext_resource type="Script" uid="uid://381dx5xtgabj" path="res://area_2d.gd" id="12_n8vhr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usj0q"]
 atlas = ExtResource("6_xy4tn")
@@ -95,6 +97,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46j3a"]
+size = Vector2(125201.61, 2075.3281)
+
 [node name="Node2D" type="Node2D" unique_id=602239401]
 
 [node name="Skybg" type="Sprite2D" parent="." unique_id=333345338]
@@ -102,7 +107,7 @@ position = Vector2(3231, 1154)
 texture = ExtResource("1_v8kj3")
 
 [node name="Skybg2" type="Sprite2D" parent="." unique_id=1859431235]
-position = Vector2(3198, 1176)
+position = Vector2(3219, 1069)
 texture = ExtResource("1_v8kj3")
 
 [node name="Dayclouds" type="Sprite2D" parent="." unique_id=546843059]
@@ -169,7 +174,7 @@ position = Vector2(4498.534, 941.1906)
 scale = Vector2(0.14955594, 1.2222894)
 
 [node name="cloud_bottom" parent="." unique_id=2010952419 instance=ExtResource("6_crycw")]
-position = Vector2(-457, 760)
+position = Vector2(-473, 812.00006)
 scale = Vector2(2.6228971, 1.2250996)
 
 [node name="Dayblock(2)" type="Sprite2D" parent="." unique_id=196108188]
@@ -352,7 +357,52 @@ position = Vector2(1199, -15.999998)
 scale = Vector2(0.035934042, 0.038582247)
 texture = ExtResource("8_xy4tn")
 
+[node name="Area2D" type="Area2D" parent="portal" unique_id=2013079896]
+position = Vector2(-27940.08, 26877.646)
+script = ExtResource("12_n8vhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal/Area2D" unique_id=1420247052]
+position = Vector2(44289.477, -4276.578)
+scale = Vector2(1, 1.0000012)
+shape = SubResource("RectangleShape2D_46j3a")
+
 [node name="portal2" type="Sprite2D" parent="." unique_id=1347929670]
 position = Vector2(3083.0002, 148.99998)
 scale = Vector2(0.035934042, 0.038582247)
 texture = ExtResource("8_xy4tn")
+
+[node name="BouncePopup" type="CanvasLayer" parent="." unique_id=474370669]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BouncePopup" unique_id=364410777]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -594.0
+offset_top = -5.0
+offset_right = 171.0
+offset_bottom = 346.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.019607844, 0.019607844, 0.019607844, 0.5882353)
+
+[node name="Sprite2D" type="Sprite2D" parent="BouncePopup" unique_id=120879104]
+
+[node name="UseBounceBack" type="Sprite2D" parent="BouncePopup" unique_id=1926279867]
+position = Vector2(331, 446)
+scale = Vector2(0.14416951, 0.14514245)
+texture = ExtResource("12_hx44q")
+
+[node name="YesButton" type="Button" parent="BouncePopup" unique_id=1737557322]
+offset_left = 72.0
+offset_top = 575.0
+offset_right = 277.0
+offset_bottom = 629.0
+text = "YES"
+
+[node name="NoButton" type="Button" parent="BouncePopup" unique_id=1811911324]
+offset_left = 342.0
+offset_top = 573.0
+offset_right = 546.0
+offset_bottom = 630.0
+text = "NO"
