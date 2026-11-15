@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_865op"]
-size = Vector2(43, 56)
+size = Vector2(50, 112)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1866755409]
 script = ExtResource("1_4flbx")
@@ -15,7 +15,7 @@ scale = Vector2(0.8969135, 0.7911386)
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609714669]
-position = Vector2(-4, 18)
+position = Vector2(1, 16)
 shape = SubResource("RectangleShape2D_865op")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2101632385]
