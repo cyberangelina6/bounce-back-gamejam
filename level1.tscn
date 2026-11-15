@@ -321,6 +321,6 @@ scale = Vector2(0.035934042, 0.038582247)
 texture = ExtResource("8_xy4tn")
 
 [node name="portal2" type="Sprite2D" parent="." unique_id=1347929670]
-position = Vector2(3172.0002, 269)
+position = Vector2(3083.0002, 148.99998)
 scale = Vector2(0.035934042, 0.038582247)
 texture = ExtResource("8_xy4tn")

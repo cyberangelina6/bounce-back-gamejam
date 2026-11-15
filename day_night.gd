@@ -10,6 +10,7 @@ const NIGHT_ART = {
 	"res://dayblock (2).png": "res://nightblock2.png",
 	"res://dayportal.png": "res://nightportal.png",
 	"res://daybunny_static1.png": "res://nightbunny_static.png",
+	"res://daybunny_jump.png": "res://nightbunny_jump.png",
 }
 
 var pairs = []  # [day sprite, night sprite laid over it]
@@ -32,6 +33,41 @@ func setup(level: Node):
 		day.add_child(night)
 		pairs.append([day, night])
 
+	# Animated sprites: build a night copy of every animation that has night art
+	for day in level.find_children("*", "AnimatedSprite2D", true, false):
+		var night_frames = _night_frames(day.sprite_frames)
+		if night_frames == null:
+			continue
+		var night = AnimatedSprite2D.new()
+		night.sprite_frames = night_frames
+		night.centered = day.centered
+		night.offset = day.offset
+		night.modulate.a = 0.0
+		day.add_child(night)
+		pairs.append([day, night])
+
+# Copies a SpriteFrames, swapping each frame's sheet for its night version.
+# Frames keep the same region, so day and night sheets must share a layout.
+# Returns null if none of the frames have night art.
+func _night_frames(day_frames: SpriteFrames) -> SpriteFrames:
+	if day_frames == null:
+		return null
+	var frames = day_frames.duplicate()
+	var swapped = false
+	for anim in frames.get_animation_names():
+		for i in frames.get_frame_count(anim):
+			var tex = frames.get_frame_texture(anim, i)
+			var night_tex = null
+			if tex is AtlasTexture and tex.atlas and NIGHT_ART.has(tex.atlas.resource_path):
+				night_tex = tex.duplicate()
+				night_tex.atlas = load(NIGHT_ART[tex.atlas.resource_path])
+			elif tex and NIGHT_ART.has(tex.resource_path):
+				night_tex = load(NIGHT_ART[tex.resource_path])
+			if night_tex:
+				frames.set_frame(anim, i, night_tex, frames.get_frame_duration(anim, i))
+				swapped = true
+	return frames if swapped else null
+
 func set_night(on: bool, time := 0.6):
 	if fade:
 		fade.kill()
@@ -46,6 +82,10 @@ func _apply(value: float):
 
 func _process(_delta):
 	# Keep the night art facing the same way as the day art (the bunny flips)
+	# and, for animated sprites, on the same animation frame
 	for pair in pairs:
 		pair[1].flip_h = pair[0].flip_h
 		pair[1].flip_v = pair[0].flip_v
+		if pair[0] is AnimatedSprite2D:
+			pair[1].animation = pair[0].animation
+			pair[1].frame = pair[0].frame
