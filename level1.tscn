@@ -97,9 +97,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46j3a"]
-size = Vector2(125201.61, 2075.3281)
-
 [node name="Node2D" type="Node2D" unique_id=602239401]
 
 [node name="Skybg" type="Sprite2D" parent="." unique_id=333345338]
@@ -175,6 +172,7 @@ position = Vector2(3664.0002, 327)
 scale = Vector2(0.14955594, 1.2222894)
 
 [node name="cloud_bottom" parent="." unique_id=2010952419 instance=ExtResource("6_crycw")]
+visible = false
 position = Vector2(-473, 812.00006)
 scale = Vector2(2.6228971, 1.2250996)
 
@@ -361,11 +359,6 @@ texture = ExtResource("8_xy4tn")
 [node name="Area2D" type="Area2D" parent="portal" unique_id=2013079896]
 position = Vector2(-27940.08, 26877.646)
 script = ExtResource("12_n8vhr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portal/Area2D" unique_id=1420247052]
-position = Vector2(44289.477, -4276.578)
-scale = Vector2(1, 1.0000012)
-shape = SubResource("RectangleShape2D_46j3a")
 
 [node name="portal2" type="Sprite2D" parent="." unique_id=1347929670]
 position = Vector2(3083.0002, 148.99998)
