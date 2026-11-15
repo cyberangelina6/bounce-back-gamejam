@@ -14,6 +14,10 @@ const NIGHT_ART = {
 	"res://daybunny_walk.png": "res://nightbunny_walk.png",
 }
 
+const BANNER_FONT = preload("res://Pixelify_Sans/static/PixelifySans-Bold.ttf")
+
+var banner: Label
+var banner_tween: Tween
 var pairs = []  # [day sprite, night sprite laid over it]
 var amount = 0.0  # 0 = day, 1 = night
 var fade: Tween
@@ -74,6 +78,33 @@ func set_night(on: bool, time := 0.6):
 		fade.kill()
 	fade = create_tween()
 	fade.tween_method(_apply, amount, 1.0 if on else 0.0, time)
+	_show_banner("NIGHT BOUNCE!" if on else "DAY BOUNCE!", on)
+
+# Pops the mode name up in the middle of the screen, then fades it out.
+# It sits on its own CanvasLayer so it stays upright when the view flips.
+func _show_banner(text: String, night: bool):
+	if banner == null:
+		var layer = CanvasLayer.new()
+		layer.layer = 50
+		add_child(layer)
+		banner = Label.new()
+		banner.add_theme_font_override("font", BANNER_FONT)
+		banner.add_theme_font_size_override("font_size", 110)
+		banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		banner.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		banner.set_anchors_preset(Control.PRESET_FULL_RECT)
+		banner.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		layer.add_child(banner)
+	banner.text = text
+	# Pale text at night, dark blue by day
+	banner.add_theme_color_override("font_color", Color("f3e9ff") if night else Color("45658a"))
+	banner.modulate.a = 0.0
+	if banner_tween:
+		banner_tween.kill()
+	banner_tween = create_tween()
+	banner_tween.tween_property(banner, "modulate:a", 1.0, 0.15)
+	banner_tween.tween_interval(0.4)
+	banner_tween.tween_property(banner, "modulate:a", 0.0, 0.3)
 
 func _apply(value: float):
 	amount = value

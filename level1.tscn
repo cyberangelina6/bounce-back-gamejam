@@ -166,8 +166,9 @@ scale = Vector2(0.38672462, 1.105572)
 position = Vector2(3243.9998, 446.99997)
 scale = Vector2(5.296385, 1.0321321)
 
-[node name="StaticBody2D13" parent="." unique_id=56783381 instance=ExtResource("1_dopym")]
-position = Vector2(4498.534, 941.1906)
+[node name="award" parent="." unique_id=1914631128 instance=ExtResource("1_dopym")]
+visible = false
+position = Vector2(3664.0002, 327)
 scale = Vector2(0.14955594, 1.2222894)
 
 [node name="cloud_bottom" parent="." unique_id=2010952419 instance=ExtResource("6_crycw")]
