@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dpg2dyh8u8tlb"]
-
 [ext_resource type="Script" uid="uid://bnar0ec0k87du" path="res://homescreen.gd" id="1_edeuv"]
 [ext_resource type="Texture2D" uid="uid://i0rweci07l5b" path="res://homescreen_scenery_clean.png" id="2_edeuv"]
+[ext_resource type="FontFile" uid="uid://cec43520bakry" path="res://Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_1bjcg"]
 [ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="3_c2ysq"]
+[ext_resource type="Script" uid="uid://c01eo265e5xxr" path="res://character_body_2d.gd" id="4_edeuv"]
 
 [node name="homescreen" type="Control" unique_id=708581588]
 layout_mode = 3
@@ -11,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_edeuv")
 
 [node name="Bunny" type="Sprite2D" parent="." unique_id=231757406]
 z_index = 1
@@ -31,7 +31,7 @@ grow_vertical = 2
 color = Color(0.70980394, 0.93333334, 0.9843137, 1)
 
 [node name="Scenery" type="Sprite2D" parent="." unique_id=74327280]
-position = Vector2(588.00006, 322.50003)
+position = Vector2(582.00006, 325)
 scale = Vector2(0.4973958, 0.4743402)
 texture = ExtResource("2_edeuv")
 
@@ -52,16 +52,20 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=681208773]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.2703539, 0.39565775, 0.5227693, 1)
+theme_override_fonts/font = ExtResource("3_1bjcg")
 theme_override_font_sizes/font_size = 64
 text = "BOUNCE BACK"
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1173078538]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1bjcg")
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
+script = ExtResource("4_edeuv")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1233831434]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1bjcg")
 theme_override_font_sizes/font_size = 32
-text = "QuitButton"
+text = "QUIT"
