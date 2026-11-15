@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var jump_cut_multiplier = 0.4
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var anim = $AnimatedSprite2D
 
 func _physics_process(delta):
 
@@ -20,7 +19,6 @@ func _physics_process(delta):
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		anim.play("jump")
 	# Variable jump height
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= jump_cut_multiplier
@@ -32,7 +30,8 @@ func _physics_process(delta):
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-
+		if collider.name == "cloud_bottom":
+			velocity.y= -1100
 		if collider.name == "cloud_bounce":
 			if collision.get_normal().y < -0.5:
 				velocity.y = -950.0
