@@ -152,6 +152,11 @@ position = Vector2(1321, 208)
 scale = Vector2(0.01576526, 0.0169271)
 texture = ExtResource("7_i2041")
 
+[node name="Dayblock(2)35" type="Sprite2D" parent="." unique_id=1572041203]
+position = Vector2(1089, 210)
+scale = Vector2(0.01576526, 0.0169271)
+texture = ExtResource("7_i2041")
+
 [node name="Dayblock(2)15" type="Sprite2D" parent="." unique_id=3374131]
 position = Vector2(1376, 207.99998)
 scale = Vector2(0.01576526, 0.0169271)
