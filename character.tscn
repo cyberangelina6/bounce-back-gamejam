@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dew81axnr7mq8"]
+
+[ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="1_glpr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46j3a"]
+size = Vector2(30, 66)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=207907811]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732699801]
+texture = ExtResource("1_glpr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1245174841]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_46j3a")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1836473462]
