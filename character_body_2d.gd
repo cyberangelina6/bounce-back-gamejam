@@ -38,7 +38,7 @@ func _physics_process(delta):
 
 	# Face the way we're moving (keeps the last facing when idle)
 	if direction != 0:
-		$Sprite2D.flip_h = direction < 0
+		anim.flip_h = direction < 0
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():

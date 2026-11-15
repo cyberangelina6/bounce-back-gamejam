@@ -1,18 +1,12 @@
 [gd_scene format=3 uid="uid://7to0ayjec8af"]
 
 [ext_resource type="Script" uid="uid://c01eo265e5xxr" path="res://character_body_2d.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_865op"]
 size = Vector2(50, 112)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1866755409]
 script = ExtResource("1_4flbx")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1578946439]
-position = Vector2(-2.0000153, -20)
-scale = Vector2(0.8969135, 0.7911386)
-texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609714669]
 position = Vector2(1, 16)

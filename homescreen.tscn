@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://i0rweci07l5b" path="res://homescreen_scenery_clean.png" id="2_edeuv"]
 [ext_resource type="FontFile" uid="uid://cec43520bakry" path="res://Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_1bjcg"]
 [ext_resource type="Texture2D" uid="uid://dhjj6qcbli84p" path="res://daybunny_static1.png" id="3_c2ysq"]
+[ext_resource type="Texture2D" uid="uid://c2g5dmqmsa74g" path="res://title.png" id="4_title"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_title"]
+atlas = ExtResource("4_title")
+region = Rect2(780, 860, 4420, 3050)
 
 [node name="homescreen" type="Control" unique_id=708581588]
 layout_mode = 3
@@ -43,20 +48,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -178.0
+offset_top = -291.0
+offset_right = 222.0
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.92, 0.92)
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=681208773]
+[node name="Title" type="TextureRect" parent="VBoxContainer" unique_id=681208773]
+custom_minimum_size = Vector2(400, 276)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2703539, 0.39565775, 0.5227693, 1)
-theme_override_fonts/font = ExtResource("3_1bjcg")
-theme_override_font_sizes/font_size = 64
-text = "BOUNCE BACK"
+texture = SubResource("AtlasTexture_title")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1173078538]
 layout_mode = 2
