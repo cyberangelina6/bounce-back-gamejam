@@ -11,6 +11,7 @@ const NIGHT_ART = {
 	"res://dayportal.png": "res://nightportal.png",
 	"res://daybunny_static1.png": "res://nightbunny_static.png",
 	"res://daybunny_jump.png": "res://nightbunny_jump.png",
+	"res://daybunny_walk.png": "res://nightbunny_walk.png",
 }
 
 var pairs = []  # [day sprite, night sprite laid over it]
