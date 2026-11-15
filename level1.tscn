@@ -94,6 +94,7 @@ position = Vector2(854, 537)
 position = Vector2(121, 435)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116513053]
+position = Vector2(0, -42)
 sprite_frames = SubResource("SpriteFrames_4vlmo")
 animation = &"jump"
 
