@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://je21hvdc0g1j" path="res://cloud_bottom.tscn" id="6_crycw"]
 [ext_resource type="Texture2D" uid="uid://bg64c2axwe360" path="res://daybunny_jump.png" id="6_xy4tn"]
 [ext_resource type="Texture2D" uid="uid://du7ety074hxih" path="res://dayblock (2).png" id="7_i2041"]
+[ext_resource type="Texture2D" uid="uid://bphwod2vc1p8f" path="res://daybunny_walk.png" id="7_mx85b"]
 [ext_resource type="Texture2D" uid="uid://cldi0b5b8mjmw" path="res://jumppad.png" id="8_usj0q"]
 [ext_resource type="Texture2D" uid="uid://d36u3l3bh761r" path="res://dayportal.png" id="8_xy4tn"]
 
@@ -39,6 +40,18 @@ region = Rect2(1000, 0, 200, 200)
 atlas = ExtResource("6_xy4tn")
 region = Rect2(1200, 0, 200, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjtee"]
+atlas = ExtResource("7_mx85b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1idop"]
+atlas = ExtResource("7_mx85b")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beq0j"]
+atlas = ExtResource("7_mx85b")
+region = Rect2(400, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4vlmo"]
 animations = [{
 "frames": [{
@@ -66,6 +79,20 @@ animations = [{
 "loop": 0,
 "name": &"jump",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjtee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1idop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beq0j")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 8.0
 }]
 
 [node name="Node2D" type="Node2D" unique_id=602239401]
@@ -94,12 +121,12 @@ position = Vector2(846, 576)
 scale = Vector2(0.79794234, 0.84326416)
 
 [node name="CharacterBody2D" parent="." unique_id=1866755409 instance=ExtResource("2_ootpb")]
-position = Vector2(131, 408)
+position = Vector2(131, 399)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116513053]
-position = Vector2(1, -9)
+position = Vector2(-1, -10)
 sprite_frames = SubResource("SpriteFrames_4vlmo")
-animation = &"jump"
+animation = &"walk"
 
 [node name="StaticBody2D2" parent="." unique_id=685346648 instance=ExtResource("1_dopym")]
 position = Vector2(56, 484)

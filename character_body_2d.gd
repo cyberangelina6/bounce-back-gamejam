@@ -32,6 +32,9 @@ func _physics_process(delta):
 	# Left and right movement
 	var direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * speed
+	
+	if is_on_floor() and direction != 0:
+		anim.play("walk")
 
 	# Face the way we're moving (keeps the last facing when idle)
 	if direction != 0:
