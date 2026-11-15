@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bv1t612rvs28l"]
+
+[ext_resource type="PackedScene" uid="uid://mmb5416vrnln" path="res://platform.tscn" id="1_dopym"]
+[ext_resource type="Texture2D" uid="uid://us32tlr5um30" path="res://skybg.png" id="1_v8kj3"]
+[ext_resource type="Texture2D" uid="uid://dvh11cne13e3g" path="res://dayclouds.png" id="2_crycw"]
+[ext_resource type="PackedScene" uid="uid://7to0ayjec8af" path="res://player.tscn" id="2_ootpb"]
+[ext_resource type="PackedScene" uid="uid://cphujgy6o3i14" path="res://cloud_bounce.tscn" id="2_v38iq"]
+[ext_resource type="PackedScene" uid="uid://je21hvdc0g1j" path="res://cloud_bottom.tscn" id="6_crycw"]
+[ext_resource type="Texture2D" uid="uid://du7ety074hxih" path="res://dayblock (2).png" id="7_i2041"]
+
+[node name="Node2D" type="Node2D" unique_id=602239401]
+
+[node name="Skybg" type="Sprite2D" parent="." unique_id=333345338]
+position = Vector2(3231, 1154)
+texture = ExtResource("1_v8kj3")
+
+[node name="Dayclouds" type="Sprite2D" parent="." unique_id=546843059]
+position = Vector2(1702, 354)
+scale = Vector2(0.292666, 0.3112673)
+texture = ExtResource("2_crycw")
+
+[node name="StaticBody2D" parent="." unique_id=243657602 instance=ExtResource("1_dopym")]
+position = Vector2(56, 484)
+
+[node name="StaticBody2D5" parent="." unique_id=272242942 instance=ExtResource("1_dopym")]
+position = Vector2(971, 197)
+
+[node name="cloud_bounce" parent="." unique_id=1528817421 instance=ExtResource("2_v38iq")]
+position = Vector2(854, 537)
+
+[node name="CharacterBody2D" parent="." unique_id=1866755409 instance=ExtResource("2_ootpb")]
+position = Vector2(121, 435)
+
+[node name="StaticBody2D2" parent="." unique_id=685346648 instance=ExtResource("1_dopym")]
+position = Vector2(56, 484)
+
+[node name="StaticBody2D3" parent="." unique_id=1522360907 instance=ExtResource("1_dopym")]
+position = Vector2(339, 335)
+
+[node name="StaticBody2D4" parent="." unique_id=1506590818 instance=ExtResource("1_dopym")]
+position = Vector2(664, 402)
+
+[node name="cloud_bottom" parent="." unique_id=2010952419 instance=ExtResource("6_crycw")]
+position = Vector2(148, 764)
+
+[node name="Dayblock(2)" type="Sprite2D" parent="." unique_id=196108188]
+position = Vector2(73, 502)
+scale = Vector2(0.01576526, 0.0169271)
+texture = ExtResource("7_i2041")
+
+[node name="Dayblock(2)2" type="Sprite2D" parent="." unique_id=431233590]
+position = Vector2(129, 502)
+scale = Vector2(0.01576526, 0.0169271)
+texture = ExtResource("7_i2041")
+
+[node name="Dayblock(2)4" type="Sprite2D" parent="." unique_id=410585435]
+position = Vector2(174, 501.99997)
+scale = Vector2(0.01576526, 0.0169271)
+texture = ExtResource("7_i2041")
