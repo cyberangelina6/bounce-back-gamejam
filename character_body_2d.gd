@@ -15,6 +15,10 @@ var in_portal = false
 var upside_down = false
 var day_night
 
+# The level ends when the bunny touches this node (or any node in the "end" group)
+@export var end_node_name = "award"
+var finished = false
+
 func _ready():
 	for node in get_parent().get_children():
 		if node is Sprite2D and node.name.to_lower().begins_with("portal"):
@@ -55,6 +59,9 @@ func _physics_process(delta):
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
+		if collider.name == end_node_name or collider.is_in_group("end"):
+			_finish_level()
+			return
 		if collider.name == "cloud_bottom":
 			velocity.y= -1100
 		if collider.name == "cloud_bounce":
@@ -78,3 +85,12 @@ func _check_portal():
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		day_night.set_night(upside_down, flip_time)
 	in_portal = inside
+
+# Stops the bunny and shows the end screen with its restart button.
+func _finish_level():
+	if finished:
+		return
+	finished = true
+	set_physics_process(false)
+	anim.stop()
+	add_child(preload("res://endscreen.gd").new())
